@@ -1,10 +1,12 @@
 import regex
 import argparse
-from sys import argv
+from os.path import join,dirname
 
+
+print(__file__)
 RADIANT_TXT = "radiant"
 ZENY_TXT = "zeny"
-DETAIL_COST_FILE = "data/detail_cost.txt"
+DETAIL_COST_FILE = join(dirname(__file__),"data/detail_cost.txt")
 
 # Compile regular expressions once at the module level
 LEVEL_RE = regex.compile(r"Level (\d+):")
