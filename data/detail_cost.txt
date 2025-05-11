@@ -1,0 +1,100 @@
+Level 1: Free
+Level 2: 100000 Zeny
+Level 3: 100000 Zeny
+Level 4: 100000 Zeny
+Level 5: 5 Radiant Crystals + 100000 Zeny
+Level 6: 100000 Zeny
+Level 7: 100000 Zeny
+Level 8: 100000 Zeny
+Level 9: 100000 Zeny
+Level 10: 5 Radiant Crystals + 100000 Zeny
+Level 11: 200000 Zeny
+Level 12: 200000 Zeny
+Level 13: 200000 Zeny
+Level 14: 200000 Zeny
+Level 15: 5 Radiant Crystals + 200000 Zeny
+Level 16: 200000 Zeny
+Level 17: 200000 Zeny
+Level 18: 200000 Zeny
+Level 19: 200000 Zeny
+Level 20: 5 Radiant Crystals + 200000 Zeny
+Level 21: 400000 Zeny
+Level 22: 400000 Zeny
+Level 23: 400000 Zeny
+Level 24: 400000 Zeny
+Level 25: 10 Radiant Crystals + 400000 Zeny
+Level 26: 400000 Zeny
+Level 27: 400000 Zeny
+Level 28: 400000 Zeny
+Level 29: 400000 Zeny
+Level 30: 15 Radiant Crystals + 400000 Zeny
+Level 31: 1200000 Zeny
+Level 32: 1200000 Zeny
+Level 33: 1200000 Zeny
+Level 34: 1200000 Zeny
+Level 35: 25 Radiant Crystals + 1200000 Zeny
+Level 36: 1200000 Zeny
+Level 37: 1200000 Zeny
+Level 38: 1200000 Zeny
+Level 39: 1200000 Zeny
+Level 40: 25 Radiant Crystals + 1200000 Zeny
+Level 41: 1600000 Zeny
+Level 42: 1600000 Zeny
+Level 43: 1600000 Zeny
+Level 44: 1600000 Zeny
+Level 45: 50 Radiant Crystals + 1600000 Zeny
+Level 46: 1600000 Zeny
+Level 47: 1600000 Zeny
+Level 48: 1600000 Zeny
+Level 49: 1600000 Zeny
+Level 50: 75 Radiant Crystals + 1600000 Zeny 
+Level 51: 2400000 Zeny
+Level 52: 2400000 Zeny
+Level 53: 2400000 Zeny
+Level 54: 75 Radiant Crystals + 2400000 Zeny
+Level 55: 75 Radiant Crystals + 2400000 Zeny
+Level 56: 2400000 Zeny
+Level 57: 2400000 Zeny
+Level 58: 2400000 Zeny
+Level 59: 75 Radiant Crystals + 2400000 Zeny
+Level 60: 75 Radiant Crystals + 2400000 Zeny
+Level 61: 5000000 Zeny
+Level 62: 5000000 Zeny
+Level 63: 50 Radiant Crystals + 5000000 Zeny
+Level 64: 75 Radiant Crystals + 5000000 Zeny
+Level 65: 100 Radiant Crystals + 5000000 Zeny
+Level 66: 5000000 Zeny
+Level 67: 5000000 Zeny 
+Level 68: 50 Radiant Crystals + 5000000 Zeny
+Level 69: 75 Radiant Crystals + 5000000 Zeny
+Level 70: 100 Radiant Crystals + 5000000 Zeny
+Level 71: 25 Radiant Crystals  + 6000000 Zeny
+Level 72: 25 Radiant Crystals + 6000000 Zeny
+Level 73: 50 Radiant Crystals + 6000000 Zeny
+Level 74: 50 Radiant Crystals + 6000000 Zeny
+Level 75: 125 Radiant Crystals + 6000000 Zeny
+Level 76: 50 Radiant Crystals + 6000000 Zeny
+Level 77: 50 Radiant Crystals + 6000000 Zeny
+Level 78: 50 Radiant Crystals + 6000000 Zeny
+Level 79: 50 Radiant Crystals + 6000000 Zeny
+Level 80: 125 Radiant Crystals + 6000000 Zeny
+Level 81: 50 Radiant Crystals + 8000000 Zeny
+Level 82: 50 Radiant Crystals + 8000000 Zeny
+Level 83: 75 Radiant Crystals + 8000000 Zeny
+Level 84: 75 Radiant Crystals + 8000000 Zeny
+Level 85: 150 Radiant Crystals + 8000000 Zeny
+Level 86: 50 Radiant Crystals + 8000000 Zeny
+Level 87: 50 Radiant Crystals + 8000000 Zeny
+Level 88: 75 Radiant Crystals + 8000000 Zeny
+Level 89: 75 Radiant Crystals + 8000000 Zeny
+Level 90: 150 Radiant Crystals + 8000000 Zeny
+Level 91: 75 Radiant Crystals + 10000000 Zeny
+Level 92: 75 Radiant Crystals + 10000000 Zeny
+Level 93: 125 Radiant Crystals + 10000000 Zeny
+Level 94: 125 Radiant Crystals + 10000000 Zeny
+Level 95: 200 Radiant Crystals + 10000000 Zeny
+Level 96: 75 Radiant Crystals + 10000000 Zeny
+Level 97: 75 Radiant Crystals + 10000000 Zeny
+Level 98: 125 Radiant Crystals + 10000000 Zeny
+Level 99: 125 Radiant Crystals + 10000000 Zeny
+Level 100: 200 Radiant Crystals + 10000000 Zeny 
