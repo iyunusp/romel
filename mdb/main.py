@@ -5,7 +5,7 @@ ELEMENT = "element"
 VALUE = "value"
 
 # Constants for skill data
-RM_MDB_RUNE_VALUE = 0.71
+RM_MDB_RUNE_VALUE = 0.89
 RONIN_SSFS_SKILL_MULTIPLIER = 1.8
 RONIN_SLASH_TICK = 3
 RONIN_SSFS_TICK = 1
@@ -15,8 +15,8 @@ RM_MDB_CD = 1.0
 
 SKILLS = {
     "RM MDB": (
-        {ELEMENT: Element.FIRE, VALUE: 0.8},
-        {ELEMENT: Element.WATER, VALUE: 0.8},
+        {ELEMENT: Element.FIRE, VALUE: 1},
+        {ELEMENT: Element.WATER, VALUE: 1},
         {ELEMENT: Element.DARK, VALUE: RM_MDB_RUNE_VALUE},
     ),
     "Ronin Slash-Light": (
