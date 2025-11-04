@@ -12,6 +12,8 @@ RONIN_SSFS_TICK = 1
 RM_MDB_TICK = 1.6
 RONIN_CD = 1.5
 RM_MDB_CD = 1.0
+ENEMY_LVL_ARMOR = 4
+
 
 SKILLS = {
     "RM MDB": (
@@ -40,7 +42,7 @@ def calc_target(skill_elements: tuple, target: Element, use_lov: bool = False) -
             if value == 0:
                 continue
             source = element_data[ELEMENT]
-            coef = ElementCoef.COEF_TABLE[source][target]
+            coef = ElementCoef.COEF_TABLE[source][target][ENEMY_LVL_ARMOR - 1]
             if use_lov:
                 coef += ElementCoef.COEF_LoV
             value *= coef
@@ -59,10 +61,13 @@ def print_comparison_header():
     print("\tUsing LoV: ", LOV)
     print("\tWith CD reduce: {:.0f}%".format(CD_REDUCE * 100))
     print("\tDark MDB Rune: {:.0f}%".format(RM_MDB_RUNE_VALUE * 100))
+    print("\tEnemy lvl armor: Lvl-{}".format(ENEMY_LVL_ARMOR))
     print("-----------------------------\n\n")
 
 
-def comparison_mdb(ronin_ss: float, ronin_ssfs: float, rm_mdb: float, prefix_str: str):
+def comparison_mdb(
+    ronin_ss: float, ronin_ssfs: float, rm_mdb: float, prefix_str: str
+):
     """Compares the damage outputs and prints the winner."""
     damages = {"Ronin Slash-Light": ronin_ss, "Ronin SSFS": ronin_ssfs, "RM MDB": rm_mdb}
     winner = max(damages, key=damages.get)
@@ -79,7 +84,7 @@ def calc_total_tick(base_damage: float, tick_n: float, job: str) -> float:
 def calc_cd_minute(base_damage: float, cd: float, job: str) -> float:
     """Calculates the total damage output per minute considering cooldown."""
     if CD_REDUCE > 0:
-        cd *= (1.0 - CD_REDUCE)
+        cd *= 1.0 - CD_REDUCE
     dps = base_damage * (60 / cd)
     print(f"{job} CD {cd:.2f}s Total output: {dps:.2f}")
     return dps

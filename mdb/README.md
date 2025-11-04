@@ -69,10 +69,12 @@
  - An optional "LoV" ("Lord of Vein") bonus to element coefficients (default: `True`, configurable within the script).
  - Cooldown reduction (default: 26%, configurable within the script).
  - Skill-specific multipliers and tick counts (defined as constants in the script).
- - A dark MDB rune value (default: 71%, configurable within the script).
+ - A dark MDB rune value (default: 89%, configurable within the script).
+ - Enemy lvl armor from 1-4 (this was based on the latest of romel update)
  
  ## Notes
  
  - The script assumes the presence of a T5 weapon for RM MDB damage calculation.
  - The script's behavior can be customized by modifying the constants at the beginning of the `main.py` file (e.g., `LOV`, `CD_REDUCE`, `RM_MDB_RUNE_VALUE`, skill multipliers, and tick counts).
  - Ensure that the `element.py` file accurately reflects the desired element relationships and coefficients for correct damage calculations.
+ - Thanks to @cremisi for the updated table for new armor lvl table
