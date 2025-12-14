@@ -7,8 +7,6 @@ MAX_LEVEL = 10
 MAX_QUALITY = 3
 
 class Cost:
-    quality = 0
-    costs = [0]
     def __init__(self, quality, costs):
         self.quality = quality
         self.costs = costs
@@ -20,10 +18,11 @@ class Cost:
         """Calculates the total cost for a range of levels."""
         if end_lvl <= start_lvl:
             raise ValueError("End level must be greater than start level.")
-        elif start_lvl > MAX_LEVEL or end_lvl > MAX_LEVEL:
-            raise ValueError(f"Level must be a number between 1 and {MAX_LEVEL}")
-        elif start_lvl < 0 or end_lvl < 1:
-            raise ValueError(f"Level must be a number between 0 and {MAX_LEVEL-1}")
+        if not (0 <= start_lvl < MAX_LEVEL):
+            raise ValueError(f"Start level must be between 0 and {MAX_LEVEL-1}")
+        if not (0 < end_lvl <= MAX_LEVEL):
+            raise ValueError(f"End level must be between 1 and {MAX_LEVEL}")
+
         total = 0
         for i in range(start_lvl, end_lvl):
             total += self.costs[i]
@@ -31,10 +30,11 @@ class Cost:
     
     def invest(self, start_lvl: int, budget: int) -> tuple[int, int]:
         """Calculates the maximum level achievable with a given amount of budget."""
-        if start_lvl >= MAX_LEVEL or start_lvl < 0:
-            raise ValueError(f"Start level must be a number between 0 and {MAX_LEVEL-1}")
-        elif budget < 0:
-            raise ValueError(f"Budget must be a positive number")
+        if not (0 <= start_lvl < MAX_LEVEL):
+            raise ValueError(f"Start level must be between 0 and {MAX_LEVEL-1}")
+        if budget < 0:
+            raise ValueError("Budget must be a positive number")
+
         final_level = start_lvl
         for i in range(start_lvl, MAX_LEVEL):
             if self.costs[i] > budget:
@@ -53,7 +53,7 @@ def load_cost(path: str) -> list[Cost]:
     with open(path, 'r', newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         if not reader.fieldnames:
-            return {}
+            return []
         quality_col = reader.fieldnames[0]
         level_col = reader.fieldnames[1]
         cost_col = reader.fieldnames[2]
@@ -64,15 +64,22 @@ def load_cost(path: str) -> list[Cost]:
     return cost_data
     
 
+
 def main(args=None):
     costs = load_cost(DETAIL_COST_FILE)
-    parser = argparse.ArgumentParser(description="Arcane rune Cost Calculator")
+    QUALITY_TEXT = {
+        1: "Passive 3 slot",
+        2: "Passive 4 slot",
+        3: "Active 7 slot"
+    }
+    
+    parser = argparse.ArgumentParser(description="Inherit Skill Cost Calculator")
     parser.add_argument(
         "-m",
         "--mode",
         choices=["cost", "invest"],
         required=True,
-        help="Calculation mode: 'cost' to calculate cost between levels, 'invest' to find max level with given Radiant Crystals.")
+        help="Calculation mode: 'cost' to calculate cost between levels, 'invest' to find max level with given budget.")
     parser.add_argument(
         "-s",
         "--start",
@@ -95,20 +102,19 @@ def main(args=None):
     parser.add_argument(
         "-q",
         "--quality",
-        choices=[1,2,3],
+        choices=QUALITY_TEXT.keys(),
         type=int,
         required=True,
         help= "The quality of the inherit skill. Used with all mode. Active 7 slot = 3, Passive 4 slot = 2, Passive 3 slot = 1",
         default= 1
     )
-    quality_text = ["Passive 3 slot", "Passive 4 slot", "Active 7 slot"] 
 
     parsed_args = parser.parse_args(args)
 
     quality = parsed_args.quality
     start = parsed_args.start
 
-    print(f"with quality of inherit skill to be {quality_text[quality-1]}")
+    print(f"with quality of inherit skill to be {QUALITY_TEXT[quality]}")
 
     if parsed_args.mode == "cost":
         end = parsed_args.end
