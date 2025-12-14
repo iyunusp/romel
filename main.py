@@ -9,30 +9,27 @@ def main():
         description="Main script to run different modules.",
         epilog="Run 'python main.py [module] --help' for module-specific options."
     )
-    subparsers = parser.add_subparsers(dest='module', help='Available modules')
+    # By adding required=True, argparse will handle cases where no module is specified.
+    subparsers = parser.add_subparsers(dest='module', help='Available modules', required=True)
 
-    # Arcane module
-    parser_arcane = subparsers.add_parser('arcane', help='Arcane Rune cost calculator', add_help=False)
-    parser_arcane.add_argument('arcane_args', nargs=argparse.REMAINDER)
+    # Arcane module - we only define the command, not its arguments.
+    # add_help=False prevents this parser from handling --help.
+    subparsers.add_parser('arcane', help='Arcane Rune cost calculator', add_help=False)
 
     # MDB module
-    parser_mdb = subparsers.add_parser('mdb', help='MDB damage calculator', add_help=False)
-    parser_mdb.add_argument('mdb_args', nargs=argparse.REMAINDER)
+    subparsers.add_parser('mdb', help='MDB damage calculator', add_help=False)
 
-    if len(sys.argv) < 2:
-        parser.print_help()
-        sys.exit(1)
-
-    # Use parse_known_args to avoid argparse from complaining about --help from submodules
+    # parse_known_args will separate the known 'module' arg from the unknown ones
+    # intended for the sub-module (e.g. '--help', element names, etc.).
     args, unknown = parser.parse_known_args()
 
+    # Call the appropriate submodule's main function with its arguments.
     if args.module == 'arcane':
-        arcane_main(sys.argv[2:])
+        # Pass the unknown arguments to the arcane_main function.
+        arcane_main(unknown)
     elif args.module == 'mdb':
-        mdb_main(sys.argv[2:])
-    else:
-        parser.print_help()
-        sys.exit(1)
+        # Pass the unknown arguments to the mdb_main function.
+        mdb_main(unknown)
 
 if __name__ == '__main__':
     main()
