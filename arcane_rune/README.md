@@ -8,8 +8,8 @@ This guide explains how to use the `main.py` script, which calculates the cost o
 - The script requires a data file named `detail_cost.txt` located in a `data` subdirectory. This file should contain the cost information for each rune level in the format:
 
   ```
-  Level 1: 10 Radiant Crystals, 1000 Zeny
-  Level 2: 15 Radiant Crystals, 1500 Zeny
+  Level 1: Free
+  Level 5: 5 Radiant Crystals + 100000 Zeny
   ...
   ```
 
@@ -18,7 +18,7 @@ This guide explains how to use the `main.py` script, which calculates the cost o
 The script is executed from the command line with various arguments to specify the calculation mode and parameters.
 
 ```bash
-python main.py -m <mode> [options]
+python arcane_rune/main.py -m <mode> [options]
 ```
 
 ## Available Arguments
@@ -42,19 +42,27 @@ The script uses `argparse` for command-line argument parsing. Here's a breakdown
 1. **Calculate the cost to level up from level 10 to 20:**
 
    ```bash
-   python main.py -m cost -s 10 -e 20
+   python arcane_rune/main.py -m cost -s 10 -e 20
+   ```
+   **Output:**
+   ```
+   From level 10 to 20 need 15 Radiant Crystals and 1,200,000 zeny
    ```
 
-2. **Calculate the cost to level up from level 1 to the maximum level (assuming it's 50):**
+2. **Calculate the cost to level up from level 1 to the maximum level:**
 
    ```bash
-   python main.py -m cost
+   python arcane_rune/main.py -m cost
    ```
 
 3. **Determine the maximum level achievable from level 5 with 1000 Radiant Crystals:**
 
    ```bash
-   python main.py -m invest -s 5 -r 1000
+   python arcane_rune/main.py -m invest -s 5 -r 1000
+   ```
+   **Output:**
+   ```
+   From level 5 and you have 1000 Radiant Crystals, you can level up to 95 with cost 980 Radiant Crystals and 58,600,000 zeny
    ```
 
 ## Output
@@ -65,6 +73,15 @@ The script will print the results of the calculation to the console. The output 
 - **`invest` mode:** Prints the maximum level achievable with the given Radiant Crystals, the total Radiant Crystals spent, and the total Zeny spent.
 
 If an error occurs (e.g., invalid level range, missing cost data), an error message will be printed.
+
+## For Development/Testing
+The `main` function can be imported and called with a list of arguments for testing purposes.
+```python
+from arcane_rune.main import main
+
+# example
+main(['-m', 'cost', '-s', '1', '-e', '10'])
+```
 
 ## Notes
 

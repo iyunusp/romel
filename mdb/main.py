@@ -125,7 +125,7 @@ class MdbCalculator:
 
         print("-----------------------------\n")
 
-    def main(self, elements=None):
+    def run_calculations(self, elements=None):
         if elements is None:
             elements = []
             
@@ -155,7 +155,7 @@ def main(args=None):
     parsed_args = parser.parse_args(args)
 
     calculator = MdbCalculator(Element, ElementCoef)
-    calculator.main(parsed_args.elements)
+    calculator.run_calculations(parsed_args.elements)
 
 if __name__ == "__main__":
     main()

@@ -78,7 +78,7 @@ def total_cost(start: int, end: int, all_costs: dict):
     try:
         radiant_cost, zeny_cost = calculate_cost_range(start, end, all_costs)
         print(
-            f"From level {start} to {end} need {radiant_cost} holyglow and {zeny_cost:,} zeny"
+            f"From level {start} to {end} need {radiant_cost} Radiant Crystals and {zeny_cost:,} zeny"
         )
     except ValueError as e:
         print(e)
@@ -101,7 +101,7 @@ def invest_radiant(start: int, radiant: int, max_level: int, all_costs: dict):
             result = level
             break
     print(
-        f"From level {start} and you have {radiant} holyglow, you can level up to {result} with cost {radiant_cost} holyglow and {zeny_cost:,} zeny"
+        f"From level {start} and you have {radiant} Radiant Crystals, you can level up to {result} with cost {radiant_cost} Radiant Crystals and {zeny_cost:,} zeny"
     )
 
 
@@ -114,7 +114,7 @@ def main(args=None):
         "--mode",
         choices=["cost", "invest"],
         required=True,
-        help="cost need start and end while invest need holyglow and start",
+        help="Calculation mode: 'cost' to calculate cost between levels, 'invest' to find max level with given Radiant Crystals.",
     )
     parser.add_argument(
         "-s",
@@ -131,7 +131,11 @@ def main(args=None):
         default=MAX_LEVEL,
     )
     parser.add_argument(
-        "-r", "--radiant", type=int, help="has radiant, default 0", default=0
+        "-r",
+        "--radiant",
+        type=int,
+        help="Amount of Radiant Crystals you have. Used with 'invest' mode.",
+        default=0,
     )
     
     parsed_args = parser.parse_args(args)
