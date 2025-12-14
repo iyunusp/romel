@@ -105,7 +105,7 @@ def invest_radiant(start: int, radiant: int, max_level: int, all_costs: dict):
     )
 
 
-if __name__ == "__main__":
+def main(args=None):
     all_costs = load_cost(DETAIL_COST_FILE)
     MAX_LEVEL = len(all_costs)
     parser = argparse.ArgumentParser(description="Arcane rune Cost Calculator")
@@ -133,14 +133,18 @@ if __name__ == "__main__":
     parser.add_argument(
         "-r", "--radiant", type=int, help="has radiant, default 0", default=0
     )
-    args = parser.parse_args()
+    
+    parsed_args = parser.parse_args(args)
 
-    mode = args.mode
-    start = args.start
-    end = args.end
-    radiant = args.radiant
+    mode = parsed_args.mode
+    start = parsed_args.start
+    end = parsed_args.end
+    radiant = parsed_args.radiant
 
     if mode == "cost":
         total_cost(start=start, end=end, all_costs=all_costs)
     elif mode == "invest":
         invest_radiant(start=start, radiant=radiant, max_level=MAX_LEVEL, all_costs=all_costs)
+
+if __name__ == "__main__":
+    main()
