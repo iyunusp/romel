@@ -1,9 +1,11 @@
 import os
 import sys
+import argparse
 from sys import argv
 
 # This ensures the parent directory is in the path for imports.
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+if __name__ == "__main__" and __package__ is None:
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from element_coef import Element, ElementCoef
 
@@ -125,7 +127,7 @@ class MdbCalculator:
 
     def main(self, elements=None):
         if elements is None:
-            elements = argv[1:]
+            elements = []
             
         self.print_comparison_header()
         ele_param = [e.upper() for e in elements]
@@ -145,8 +147,15 @@ def main(args=None):
     Main function to run the MDB calculator.
     Initializes the calculator and runs the calculations based on provided arguments.
     """
+    parser = argparse.ArgumentParser(description='MDB damage calculator.')
+    parser.add_argument('elements', nargs='*', default=['ALL'],
+                        help='One or more elements to calculate damage against, or "ALL" for all elements.')
+    
+    # If args are passed, use them, otherwise argparse uses sys.argv
+    parsed_args = parser.parse_args(args)
+
     calculator = MdbCalculator(Element, ElementCoef)
-    calculator.main(args)
+    calculator.main(parsed_args.elements)
 
 if __name__ == "__main__":
     main()
