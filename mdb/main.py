@@ -2,6 +2,13 @@ import os
 import sys
 from sys import argv
 
+# This ensures the parent directory is in the path for imports.
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from element_coef import Element, ElementCoef
+
+
+
 ELEMENT = "element"
 VALUE = "value"
 
@@ -133,10 +140,13 @@ class MdbCalculator:
                 except KeyError:
                     print(f"Invalid element: {element_name}")
 
-if __name__ == "__main__":
-    # For standalone execution, we handle the imports here.
-    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-    from element_coef.element import Element, ElementCoef
-    
+def main(args=None):
+    """
+    Main function to run the MDB calculator.
+    Initializes the calculator and runs the calculations based on provided arguments.
+    """
     calculator = MdbCalculator(Element, ElementCoef)
-    calculator.main()
+    calculator.main(args)
+
+if __name__ == "__main__":
+    main()

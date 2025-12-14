@@ -1,7 +1,6 @@
 import sys
-from arcane_rune.main import main as arcane_main
-from mdb.main import MdbCalculator
-from element_coef.element import Element, ElementCoef
+from arcane_rune import arcane_main
+from mdb import mdb_main
 
 def print_usage():
     """Prints the usage instructions for the main script."""
@@ -12,7 +11,7 @@ def print_usage():
     print("\nRun 'python main.py [module] --help' for module-specific options.")
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 2 or sys.argv[1] == '--help':
         print_usage()
         sys.exit(1)
 
@@ -22,8 +21,7 @@ if __name__ == '__main__':
     if module == 'arcane':
         arcane_main(args)
     elif module == 'mdb':
-        calculator = MdbCalculator(Element, ElementCoef)
-        calculator.main(args)
+        mdb_main(args)
     else:
         print(f"Error: Unknown module '{module}'\n")
         print_usage()
