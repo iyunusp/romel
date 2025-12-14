@@ -1,5 +1,11 @@
+import os
+import sys
 from sys import argv
-from element import Element, ElementCoef
+
+# Add the project root directory to the Python path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from element_coef.element import Element, ElementCoef
 
 ELEMENT = "element"
 VALUE = "value"
