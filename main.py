@@ -1,11 +1,4 @@
 import sys
-import os
-
-# Check if the script is running in a directory that is not the project root
-# and add the project root to the path.
-if sys.path[0] not in ('.', ''):
-    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
-
 from arcane_rune.main import main as arcane_main
 from mdb.main import MdbCalculator
 from element_coef.element import Element, ElementCoef
