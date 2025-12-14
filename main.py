@@ -1,7 +1,7 @@
 import argparse
-import sys
 from arcane_rune import arcane_main
 from mdb import mdb_main
+from inherit_skill import inherit_main
 
 def main():
     """Main function to handle command-line arguments."""
@@ -19,6 +19,10 @@ def main():
     # MDB module
     subparsers.add_parser('mdb', help='MDB damage calculator', add_help=False)
 
+    # Inherit module
+    subparsers.add_parser('inherit_skill', help='Inherit skill cost calculator', add_help=False)
+
+
     # parse_known_args will separate the known 'module' arg from the unknown ones
     # intended for the sub-module (e.g. '--help', element names, etc.).
     args, unknown = parser.parse_known_args()
@@ -30,6 +34,9 @@ def main():
     elif args.module == 'mdb':
         # Pass the unknown arguments to the mdb_main function.
         mdb_main(unknown)
+    elif args.module == 'inherit_skill':
+        # Pass the unknown arguments to the inherit_main function.
+        inherit_main(unknown)
 
 if __name__ == '__main__':
     main()

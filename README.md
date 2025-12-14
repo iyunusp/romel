@@ -12,6 +12,9 @@ This project is a collection of Python submodules with different functionalities
 ├── element_coef/
 │   ├── element.py
 │   └── ...
+├── inherit_skill/
+│   ├── main.py
+│   └── ...
 ├── mdb/
 │   ├── main.py
 │   └── ...
@@ -21,6 +24,7 @@ This project is a collection of Python submodules with different functionalities
 - **`main.py`**: The main entry point of the project. It can be used to run the submodules.
 - **`arcane_rune/`**: A submodule for arcane rune calculations.
 - **`element_coef/`**: A submodule for element coefficient calculations.
+- **`inherit_skill/`**: A submodule for inherit skill calculations.
 - **`mdb/`**: A submodule for MDB-related functionalities.
 
 ## How to Run
@@ -48,6 +52,12 @@ To run the `arcane_rune` module:
 python main.py arcane_rune --help
 ```
 
+To run the `inherit_skill` module:
+
+```bash
+python main.py inherit_skill --help
+```
+
 ### Submodules
 
 Each submodule can also be run directly.
@@ -64,5 +74,12 @@ python main.py holy
 
 ```bash
 cd arcane_rune
+python main.py --help
+```
+
+#### Inherit Skill
+
+```bash
+cd inherit_skill
 python main.py --help
 ```

@@ -1,0 +1,1 @@
+from .main import main as inherit_main
