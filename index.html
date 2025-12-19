@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romel RPG Tools</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.4.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.4.1/core.js"></script>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background-color: #2a2a2a;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+        .input-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        #args-input {
+            flex-grow: 1;
+            padding: 0.75rem;
+            border-radius: 4px;
+            border: 1px solid #444;
+            background-color: #333;
+            color: #f0f0f0;
+            font-size: 1rem;
+        }
+        #run-button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #run-button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            background-color: #1e1e1e;
+            padding: 1rem;
+            border-radius: 4px;
+            min-height: 200px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: "Courier New", Courier, monospace;
+            border: 1px solid #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Romel RPG Tools</h1>
+        <div class="input-container">
+            <input type="text" id="args-input" placeholder="mdb holy" value="mdb holy">
+            <button py-click="run_command">Run</button>
+        </div>
+        <pre id="output"></pre>
+    </div>
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.11.2/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2025.11.2/core.js"></script>
+
+    <script type="py" config="./pyscript.toml">
+        import sys
+        import io
+        from pyscript import document
+        import main
+
+        def run_command(event):
+            
+            output_element = document.querySelector("#output")
+            args_input = document.querySelector("#args-input").value
+            
+            # Mock sys.argv
+            sys.argv = ["main.py"] + args_input.split()
+            
+            # Redirect stdout
+            old_stdout = sys.stdout
+            redirected_output = io.StringIO()
+            sys.stdout = redirected_output
+            
+            output_element.innerText = ""
+            output_element.innerText = "Running command...\n\n"
+
+            try:
+                main.entry_point()
+            except SystemExit:
+                # Argparse calls SystemExit on --help or errors, which we want to capture
+                pass
+            except Exception as e:
+                import traceback
+                output_element.innerText = f"An error occurred:\n{traceback.format_exc()}"
+            finally:
+                # Restore stdout and display results
+                sys.stdout = old_stdout
+                final_output = redirected_output.getvalue()
+                output_element.innerText = final_output
+    </script>
+</body>
+</html>
