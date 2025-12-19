@@ -1,0 +1,17 @@
+name = "Romel RPG Tools"
+archives = ["./source.zip"]
+packages = ["regex"]
+
+[files]
+"./main.py"= "./main.py"
+"./__init__.py"= "./__init__.py"
+"./arcane_rune/__init__.py"= "./arcane_rune/__init__.py"
+"./arcane_rune/main.py"= "./arcane_rune/main.py"
+"./arcane_rune/data/detail_cost.txt"= "./arcane_rune/data/detail_cost.txt"
+"./element_coef/__init__.py"= "./element_coef/__init__.py"
+"./element_coef/element.py"= "./element_coef/element.py"
+"./inherit_skill/__init__.py"= "./inherit_skill/__init__.py"
+"./inherit_skill/main.py"= "./inherit_skill/main.py"
+"./inherit_skill/data/shard_cost.csv"= "./inherit_skill/data/shard_cost.csv"
+"./mdb/__init__.py"= "./mdb/__init__.py"
+"./mdb/main.py"= "./mdb/main.py"

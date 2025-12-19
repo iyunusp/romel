@@ -3,7 +3,7 @@ from arcane_rune import arcane_main
 from mdb import mdb_main
 from inherit_skill import inherit_main
 
-def main():
+def entry_point():
     """Main function to handle command-line arguments."""
     parser = argparse.ArgumentParser(
         description="Main script to run different modules.",
@@ -39,4 +39,4 @@ def main():
         inherit_main(unknown)
 
 if __name__ == '__main__':
-    main()
+    entry_point()
